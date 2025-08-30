@@ -2,57 +2,50 @@
 
 "use client"
 import { useState ,useEffect} from 'react'
- 
+ import { Header } from './_elements/header';
 import {Checkbox} from "@heroui/checkbox";
+import TaskList from './_elements/closingChecklist';
+import ModelTemplate from './_elements/test';
 const ClosingDuties = () => {
   // Initialize state for all checkboxes
-  const [duties, setDuties] = useState({
-    serviceSide1: false,
-    serviceSide2: false,
-    serviceSide3: false,
-    serviceSide4: false,
-    serviceSide5: false,
-    prepSide1: false,
-    prepSide2: false,
-    dishPit1: false,
-    dishPit2: false,
-    dishPit3: false,
-    dishPit4: false,
-    kitchen1: false,
-    kitchen2: false,
-    kitchen3: false,
-    kitchen4: false,
-    kitchen5: false,
-  })
-  useEffect(()=>{
-    console.log(duties);
-    
-  },[duties])
-   const currentDate = new Date().toLocaleDateString("en-US", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  })
+//   const [duties, setDuties] = useState({
+//     serviceSide1: false,
+//     serviceSide2: false,
+//     serviceSide3: false,
+//     serviceSide4: false,
+//     serviceSide5: false,
+//     prepSide1: false,
+//     prepSide2: false,
+//     dishPit1: false,
+//     dishPit2: false,
+//     dishPit3: false,
+//     dishPit4: false,
+//     kitchen1: false,
+//     kitchen2: false,
+//     kitchen3: false,
+//     kitchen4: false,
+//     kitchen5: false,
+//   })
+ 
+  
   
 
   // Toggle the checkbox state
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target
-    setDuties(prev => ({
-      ...prev,
-      [name]: checked,
-    }))
-  }
+//   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const { name, checked } = e.target
+//     setDuties(prev => ({
+//       ...prev,
+//       [name]: checked,
+//     }))
+//   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6 rounded-lg shadow-md">
-      <h1 className="text-3xl font-semibold mb-6 text-center  ">
-        Closing Duties Checklist
-        <span className="block text-lg  mt-2">{currentDate}</span> {/* Display the current date */}
-      </h1>
+<ModelTemplate header ={<Header/>} body = {<TaskList/>}/>
+      )
+}
 
-      <form className="space-y-4">
+export default ClosingDuties
+  {/* <form className="space-y-4">
         <h2 className="text-xl font-semibold">Service Side</h2>
         <div className="space-y-2">
           {[
@@ -143,9 +136,4 @@ const ClosingDuties = () => {
             
           </button>
         </div>
-      </form>
-    </div>
-  )
-}
-
-export default ClosingDuties
+      </form> */}
