@@ -15,7 +15,7 @@ export default function CardComponent({
   setValue: (val: boolean) => void;
 }) {
   return (
-    <Card className="py-4 w-[50%]">
+    <Card className="py-4  ">
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
         <p className="text-tiny uppercase font-bold">{title}</p>
         <Progress aria-label="Loading..." size="lg" value={progress}  />

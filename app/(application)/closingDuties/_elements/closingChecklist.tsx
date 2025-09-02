@@ -8,6 +8,11 @@ import React from "react"
 export default function TaskList() {
     const router = useRouter();
     const [name,setName] = useState<string>("");
+    type Task = {
+  description: string;
+  status: boolean | null;
+};
+
 
  const employees = [
   { key: "anjel", label: "Anjel" },
@@ -64,8 +69,17 @@ const[getEmployee,setEmployee] =useState<boolean>(true);
       setCurrentIndex(currentIndex + 1);
   
     } else {
-    //  router.push("/")
-      alert(taskStatus)
+ //tasks are saved here
+    const tasks: Task[] = allTasks.map((task, index) => ({
+  description: task,
+  status: taskStatus[index] ?? null, // default to null if status not set
+}));
+//TODO: Create a table
+alert("LET'S DO THE TEMPERATURE LOG ")
+router.push('/temperatureLog');
+console.log(tasks);
+
+     
 
     }
   };
